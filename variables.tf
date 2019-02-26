@@ -138,7 +138,7 @@ variable "loadbalancer_stickiness_enabled" {
 }
 
 variable "loadbalancer_stickiness_cookie_duration" {
-  default     = '86400'
+  default     = "86400"
   description = "Load balancer session stickiness cookie duration"
 }
 
