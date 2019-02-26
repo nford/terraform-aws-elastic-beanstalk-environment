@@ -979,7 +979,7 @@ resource "aws_elastic_beanstalk_environment" "default" {
     name      = "${element(concat(keys(var.env_vars), list(format(var.env_default_key, 49))), 49)}"
     value     = "${lookup(var.env_vars, element(concat(keys(var.env_vars), list(format(var.env_default_key, 49))), 49), var.env_default_value)}"
   }
-  ###===================== Application Load Balancer Health check settings =====================================================###
+  ###===================== Application Load Balancer Settings =====================================================###
   # The Application Load Balancer health check does not take into account the Elastic Beanstalk health check path
   # http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-cfg-applicationloadbalancer.html
   # http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-cfg-applicationloadbalancer.html#alb-default-process.config
@@ -997,6 +997,18 @@ resource "aws_elastic_beanstalk_environment" "default" {
     namespace = "aws:elasticbeanstalk:environment:process:default"
     name      = "Protocol"
     value     = "HTTP"
+  }
+  
+  setting {
+    namespace = "aws:elasticbeanstalk:environment:process:default"
+    name      = "StickinessEnabled"
+    value     = "${var.loadbalancer_stickiness_enabled}"
+  }
+
+  setting {
+    namespace = "aws:elasticbeanstalk:environment:process:default"
+    name      = "StickinessLBCookieDuration"
+    value     = "${var.loadbalancer_stickiness_cookie_duration}"
   }
 
   ###===================== Notification =====================================================###
