@@ -475,6 +475,11 @@ resource "aws_elastic_beanstalk_environment" "default" {
     name      = "UpperBreachScaleIncrement"
     value     = "${var.autoscale_upper_increment}"
   }
+  setting {
+    namespace = "aws:autoscaling:trigger"
+    name      = "BreachDuration"
+    value     = "${var.autoscale_breach_duration}"
+  }
 
   ###=========================== Autoscale trigger ========================== ###
 
