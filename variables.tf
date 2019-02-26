@@ -132,6 +132,16 @@ variable "loadbalancer_managed_security_group" {
   description = "Load balancer managed security group"
 }
 
+variable "loadbalancer_stickiness_enabled" {
+  default     = "false"
+  description = "Load balancer session stickiness"
+}
+
+variable "loadbalancer_stickiness_cookie_duration" {
+  default     = "86400"
+  description = "Load balancer session stickiness cookie duration"
+}
+
 variable "http_listener_enabled" {
   default     = "false"
   description = "Enable port 80 (http)"
