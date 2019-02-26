@@ -133,12 +133,12 @@ variable "loadbalancer_managed_security_group" {
 }
 
 variable "loadbalancer_stickiness_enabled" {
-  default     = false
+  default     = 'false'
   description = "Load balancer session stickiness"
 }
 
 variable "loadbalancer_stickiness_cookie_duration" {
-  default     = 86400
+  default     = '86400'
   description = "Load balancer session stickiness cookie duration"
 }
 
