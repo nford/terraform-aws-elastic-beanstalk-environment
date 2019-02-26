@@ -309,6 +309,11 @@ variable "autoscale_max" {
   description = "Maximum instances in charge"
 }
 
+variable "autoscale_breach_duration" {
+  default     = "300"
+  description = "Amount of time, in minutes, a metric can be beyond its defined limit"
+}
+
 variable "solution_stack_name" {
   default     = ""
   description = "Elastic Beanstalk stack, e.g. Docker, Go, Node, Java, IIS. [Read more](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)"
