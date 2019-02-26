@@ -133,7 +133,7 @@ variable "loadbalancer_managed_security_group" {
 }
 
 variable "loadbalancer_stickiness_enabled" {
-  default     = 'false'
+  default     = "false"
   description = "Load balancer session stickiness"
 }
 
